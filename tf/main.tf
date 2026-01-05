@@ -8,3 +8,13 @@ module "vpc" {
   vpc_name  = "kratos-vpc"
 }
 
+
+
+# ------------------------
+# Internet Gateway
+# ------------------------
+module "igw" {
+  source = "./modules/igw"
+  igw_name = "kratos-igw"
+  vpc_id = module.vpc.vpc_id
+}
