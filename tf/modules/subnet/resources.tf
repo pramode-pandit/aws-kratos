@@ -4,8 +4,8 @@
 
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = var.vpc_id
-  cidr_block              = var.public_subnet_cidr # "10.0.1.0/24" # Ensure this doesn't overlap existing subnets
-  map_public_ip_on_launch = true                   # Makes it a "Public" subnet
+  cidr_block              = var.public_subnet_cidr   # Ensure this doesn't overlap existing subnets
+  map_public_ip_on_launch = true                     # Makes it a "Public" subnet
 
   tags = {
     Name = var.public_subnet_name
