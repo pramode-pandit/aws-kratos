@@ -9,5 +9,10 @@ output "vpc_name" {
 }
 
 
+output "vpc_cidr" {
+  description = "CIDR of the VPC"
+  value = aws_vpc.main.cidr_block
+}
+
 
 

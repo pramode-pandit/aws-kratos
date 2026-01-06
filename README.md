@@ -6,6 +6,48 @@
 
 ---
 
+### TAG: 03-subnet-module 
+- Clean code to demostrate new module subnet added
+- consist of public subnet, custom route table 
+- add route_table_association to map subnet and and route table 
+
+- code execution
+  - terraform -chdir=tf  init
+  - terraform -chdir=tf  plan  -out=plans/dev.tfplan
+  - terraform -chdir=tf  apply plans/dev.tfplan  
+
+- outputs:
+  ```
+  igw = {
+    "igw_id" = "igw-08f273e8b9aaa2d75"
+    "igw_name" = "kratos-igw"
+    "vpc_id" = "vpc-0583a436ddae0a532"
+  }
+  public_rt = {
+    "igw_id" = "igw-08f273e8b9aaa2d75"
+    "route_name" = "keratos-public-subnet-rt"
+    "subnet_id" = "subnet-0f6b574b154de4721"
+  }
+  subnet = {
+    "public_subnet_cidr" = "10.0.1.0/24"
+    "public_subnet_name" = "kratos-public-subnet"
+    "vpc_id" = "vpc-0583a436ddae0a532"
+  }
+  vpc = {
+    "id" = "vpc-0583a436ddae0a532"
+    "name" = "kratos-vpc"
+    "vpc_cidr" = "10.0.0.0/16"
+  }
+  ```
+
+- resource cleanup
+  - terraform -chdir=tf  plan  -out=plans/dev.tfplan -destoy
+  - terraform -chdir=tf  apply plans/dev.tfplan 
+    **<br/>Or run destroy <br/>**
+  - terraform -chdir=tf destroy -auto-approve
+
+---
+
 ### TAG: 02-igw-module 
 - Clean code to demostrate new module IGW added
 - add interget_gateway and attach to the vpc
