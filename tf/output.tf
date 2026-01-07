@@ -25,6 +25,7 @@ output "subnet" {
   value = {
     vpc_id   = module.vpc.vpc_id
     public_subnet_name = module.subnet.public_subnet_name
+    subnet_id  = module.subnet.public_subnet_id
     public_subnet_cidr = module.subnet.public_subnet_cidr
   }
 }
@@ -35,5 +36,16 @@ output "public_rt" {
     route_name = module.subnet.public_subnet_route_name
     igw_id     = module.igw.igw_id
     subnet_id  = module.subnet.public_subnet_id
+  }
+}
+
+
+
+output "instance_ec20" {
+  description = "Ec20 Instance details"
+  value = {
+    instance_name = module.ec2.ec20_instance_name
+    subnet_id  = module.subnet.public_subnet_id
+    key_name = module.ec2.ec20_key_name
   }
 }

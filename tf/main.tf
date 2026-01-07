@@ -30,3 +30,17 @@ module "subnet" {
   gateway_id = module.igw.igw_id
 
 }
+
+
+# ------------------------
+# Public EC2 ec20
+# ------------------------
+module "ec2" {
+  source = "./modules/ec2"
+  ec20_instance_name = "kratos-ec20"
+  vpc_id = module.vpc.vpc_id
+  subnet_id = module.subnet.public_subnet_id
+  ec20_sec_grp = "kratos-ec20-sg"
+  ec20_key_name = "kratos-ec20-key"
+
+}

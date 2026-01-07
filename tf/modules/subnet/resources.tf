@@ -1,5 +1,5 @@
 # ------------------------
-# MODULES/SUBNET 
+# MODULE - KERATOS PUBLIC SUBNET 
 # ------------------------
 
 resource "aws_subnet" "public_subnet" {
