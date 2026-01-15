@@ -49,3 +49,11 @@ output "instance_ec20" {
     key_name = module.ec2.ec20_key_name
   }
 }
+
+output "ngw" {
+  description = "NGW details"
+  value = {
+    ngw_name = module.ngw.ngw_name
+    ngw_id   = module.ngw.ngw_id
+  }
+}

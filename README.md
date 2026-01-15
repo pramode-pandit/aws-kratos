@@ -6,6 +6,56 @@
 
 ---
 
+### TAG: 05-ngw-module 
+
+- Clean code to demostrate new module ngw added
+- consist of notwork gateway , elastic_ip_
+- adds depends_ob block to main sequencing
+
+- code execution
+  - terraform -chdir=tf  init
+  - terraform -chdir=tf  plan  -out=plans/dev.tfplan
+  - terraform -chdir=tf  apply plans/dev.tfplan  
+
+- outputs:
+
+```
+  igw = {
+    "igw_id" = "igw-0d03f8b48dd8eee42"
+    "igw_name" = "kratos-igw"
+    "vpc_id" = "vpc-06693d5b22f236ed9"
+  }
+  instance_ec20 = {
+    "instance_name" = "kratos-ec20"
+    "key_name" = "kratos-ec20-key"
+    "subnet_id" = "subnet-01e2d3cc43f0ffc43"
+  }
+  ngw = {
+    "ngw_id" = "nat-0f484e186f581fd1b"
+    "ngw_name" = "kratos-ngw"
+  }
+  
+  public_rt = {
+    "igw_id" = "igw-0d03f8b48dd8eee42"
+    "route_name" = "keratos-public-subnet-rt"
+    "subnet_id" = "subnet-01e2d3cc43f0ffc43"
+  }
+  subnet = {
+    "public_subnet_cidr" = "10.0.1.0/24"
+    "public_subnet_name" = "kratos-public-subnet"
+    "subnet_id" = "subnet-01e2d3cc43f0ffc43"
+    "vpc_id" = "vpc-06693d5b22f236ed9"
+  }
+  vpc = {
+    "id" = "vpc-06693d5b22f236ed9"
+    "name" = "kratos-vpc"
+    "vpc_cidr" = "10.0.0.0/16"
+  }
+```
+
+
+---
+
 ### TAG: 04-ec2-module 
 - Clean code to demostrate new module ec2 added
 - consist of key gen, security group  
